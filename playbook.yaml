@@ -1,11 +1,9 @@
-- hosts: pythonwebapp
+- hosts: flask
   remote_user: vagrant
   become: true
   become_method: sudo
   become_user: root
   vars:
-    webapp_repo_url: "https://github.com/lesfurets/demo-flask-uwsgi.git"
-    webapp_scm_revision: "v2"
     webapp_ini_file: "{{ webapp_dest_folder }}/demo.ini"
     webapp_settings_file_path: "settings.py"
     webapp_user: "webapp"

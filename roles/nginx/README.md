@@ -1,10 +1,6 @@
 Nginx
 =========
 
-[![Build Status](https://travis-ci.org/lesfurets/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/lesfurets/ansible-role-nginx)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Ansible Galaxy: lesfurets.nginx](https://img.shields.io/badge/galaxy-lesfurets.nginx-blueviolet.svg)](https://galaxy.ansible.com/lesfurets/nginx)
-
 Ansible role to install nginx from system package
 
 ## Dependencies
@@ -72,7 +68,7 @@ Nginx behaviour settings:
 - SSL related variables:
   - **use_ssl**: *Optional*, when set to true, adds the `ssl on;` directive to the vhost server block.
   - **redirect_http_https**: *Optional*, when set to true, adds a server block that listen on port 80 and redirect to `https://$host$request_uri;`
-  - **ssl_params**: *Optional*, a list of SSL parameters to add: [] # list of ssl parameters to apply. Default is 
+  - **ssl_params**: *Optional*, a list of SSL parameters to add: [] # list of ssl parameters to apply. Default is
   ```ssl_certificate: '/etc/nginx/cert.crt'
   ssl_certificate_key: '/etc/nginx/cert.key'
   ssl_session_cache: 'builtin:1000  shared:SSL:10m'

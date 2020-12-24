@@ -1,10 +1,6 @@
 Python webapp
 =========
 
-[![Build Status](https://travis-ci.org/lesfurets/ansible-role-pythonwebapp.svg?branch=master)](https://travis-ci.org/lesfurets/ansible-role-pythonwebapp)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Ansible Galaxy: lesfurets.pythonwebapp](https://img.shields.io/badge/galaxy-lesfurets.pythonwebapp-blueviolet.svg)](https://galaxy.ansible.com/lesfurets/pythonwebapp)
-
 Ansible role to install python web applications (django, flask...) and setup uwsgi/nginx to expose the app.
 
 ## Requirements

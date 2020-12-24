@@ -1,22 +1,15 @@
 ---
-- name: Ensure git is installed
-  apt:
-    name: git
-    state: present
-  when: ansible_os_family == "Debian"
 
-- name: Ensure git is installed
-  yum:
-    name: git
-    state: present
-  when: ansible_os_family == "RedHat"
+- name: Create directory for Flask
+  file:
+    path: "{{ webapp_dest_folder }}"
+    state: directory
 
-- name: Clone project
-  git:
-    repo: "{{ webapp_repo_url }}"
-    clone: true
+- name: Unpacked DEMO project
+  unarchive:
+    src: "demo-flask-uwsgi.tar.gz"
     dest: "{{ webapp_dest_folder }}"
-    version: "{{ webapp_scm_revision }}"
+    creates: "{{ webapp_dest_folder }}/wsgi.py"
 
 - name: Ensure permissions on webapp install
   file:
@@ -35,6 +28,8 @@
   pip:
     executable: pip3
     requirements: "{{ webapp_requirements }}"
+  vars:
+      ansible_python_interpreter: /usr/bin/python3
 
 - name: Copy settings file
   copy:
@@ -53,6 +48,10 @@
     enabled: true
     daemon-reload: true
     state: started
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
 
 - name: Setup nginx
   import_role:
